@@ -1,0 +1,707 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: #f8f8f6;
+    color: #111;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+
+    padding: 35px 0 60px;
+}
+
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+
+.label {
+    display: block;
+
+    font-size: 9px;
+    letter-spacing: 0.18em;
+
+    color: #777;
+
+    font-weight: 600;
+}
+
+
+h1,
+h2,
+strong {
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #111;
+
+    font-size: 10px;
+    letter-spacing: 0.12em;
+}
+
+
+.brand {
+    display: flex;
+    gap: 12px;
+}
+
+
+.brand span:last-child {
+    color: #777;
+}
+
+
+.current-date {
+    color: #777;
+}
+
+
+/* =====================================================
+   MONTH HEADER
+===================================================== */
+
+.month-header {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 2fr;
+
+    padding: 45px 0;
+
+    border-bottom: 1px solid #111;
+}
+
+
+.month-title h1 {
+
+    margin-top: 4px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(42px, 7vw, 70px);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.05em;
+}
+
+
+.month-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    align-items: end;
+}
+
+
+.stat {
+
+    border-left: 1px solid #ccc;
+
+    padding-left: 20px;
+}
+
+
+.stat strong {
+
+    display: block;
+
+    font-family: Georgia, serif;
+
+    font-size: 36px;
+
+    line-height: 1;
+}
+
+
+.stat span {
+
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 9px;
+
+    letter-spacing: 0.14em;
+
+    color: #777;
+}
+
+
+/* =====================================================
+   MAIN GRID
+===================================================== */
+
+.dashboard-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr 0.85fr;
+
+    border-bottom: 1px solid #111;
+}
+
+
+/* =====================================================
+   PANELS
+===================================================== */
+
+.today-panel {
+
+    padding: 35px 30px 35px 0;
+
+    border-right: 1px solid #ccc;
+}
+
+
+.activity-panel {
+
+    padding: 35px 0 35px 30px;
+}
+
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.section-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #111;
+}
+
+
+.section-heading h2 {
+
+    margin-top: 4px;
+
+    font-family: Georgia, serif;
+
+    font-size: 27px;
+}
+
+
+.day-name {
+
+    font-size: 9px;
+
+    color: #888;
+
+    letter-spacing: 0.1em;
+}
+
+
+/* =====================================================
+   TASKS
+===================================================== */
+
+.tasks-section {
+
+    padding: 25px 0 30px;
+}
+
+
+.subheading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    font-size: 9px;
+
+    letter-spacing: 0.12em;
+
+    color: #888;
+}
+
+
+.task {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 45px;
+
+    border-bottom: 1px solid #ddd;
+
+    cursor: pointer;
+}
+
+
+.task-checkbox {
+
+    width: 15px;
+    height: 15px;
+
+    border: 1px solid #111;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+
+.task.completed .task-checkbox {
+
+    background: #111;
+
+    color: white;
+}
+
+
+.task.completed .task-checkbox::after {
+
+    content: "✓";
+
+    font-size: 9px;
+}
+
+
+.task-text {
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+}
+
+
+.task.completed .task-text {
+
+    color: #999;
+
+    text-decoration: line-through;
+}
+
+
+.text-button {
+
+    margin-top: 12px;
+
+    padding: 0;
+
+    background: none;
+
+    border: none;
+
+    color: #777;
+
+    font-size: 9px;
+
+    letter-spacing: 0.1em;
+
+    cursor: pointer;
+}
+
+
+.text-button:hover {
+
+    color: #111;
+}
+
+
+/* =====================================================
+   REFLECTION
+===================================================== */
+
+.reflection-section {
+
+    border-top: 1px solid #ccc;
+}
+
+
+.reflection-block {
+
+    padding: 22px 0;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+.reflection-block p {
+
+    margin-top: 10px;
+
+    max-width: 500px;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    line-height: 1.65;
+
+    color: #333;
+}
+
+
+/* =====================================================
+   ACTIVITY SELECTOR
+===================================================== */
+
+.activity-selector {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 20px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #111;
+}
+
+
+.activity-selector h2 {
+
+    margin-top: 4px;
+
+    font-family: Georgia, serif;
+
+    font-size: 27px;
+}
+
+
+.activity-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 4px;
+
+    justify-content: flex-end;
+}
+
+
+.activity-button {
+
+    border: none;
+
+    background: transparent;
+
+    padding: 5px 7px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.08em;
+
+    color: #888;
+
+    cursor: pointer;
+}
+
+
+.activity-button:hover {
+
+    color: #111;
+}
+
+
+.activity-button.active {
+
+    background: #111;
+
+    color: #fff;
+}
+
+
+/* =====================================================
+   CALENDAR
+===================================================== */
+
+.calendar {
+    padding-top: 25px;
+}
+
+
+.calendar-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+
+    font-size: 9px;
+    letter-spacing: 0.12em;
+}
+
+
+.calendar-arrow {
+    border: none;
+
+    background: none;
+
+    color: #777;
+
+    cursor: pointer;
+
+    padding: 5px;
+}
+
+
+.calendar-arrow:hover {
+    color: #111;
+}
+
+
+.weekdays,
+.calendar-days {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    text-align: center;
+}
+
+
+.weekdays {
+    padding-bottom: 8px;
+
+    border-bottom: 1px solid #ccc;
+
+    font-size: 8px;
+
+    color: #999;
+}
+
+
+.calendar-days {
+    padding-top: 8px;
+}
+
+
+.calendar-day {
+    position: relative;
+
+    width: 36px;
+    height: 36px;
+
+    margin: 3px auto;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    background: transparent;
+
+    border-radius: 50%;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    color: #777;
+
+    cursor: pointer;
+}
+
+
+.calendar-day:hover {
+    outline: 1px solid #aaa;
+}
+
+
+/*
+    A logged day becomes a black circle.
+*/
+
+.calendar-day.logged {
+    background: #111;
+
+    color: #fff;
+}
+
+
+/*
+    Today's date gets an outline
+    if it isn't logged.
+*/
+
+.calendar-day.today:not(.logged) {
+    outline: 1px solid #111;
+
+    color: #111;
+}
+
+
+/*
+    Selected day gets an outlined circle
+    so it remains distinguishable.
+*/
+
+.calendar-day.selected {
+    outline: 2px solid #111;
+
+    outline-offset: 2px;
+}
+
+
+/*
+    If the selected day is also logged,
+    keep the black circle.
+*/
+
+.calendar-day.logged.selected {
+    outline: 2px solid #111;
+
+    outline-offset: 2px;
+}
+
+
+/*
+    Empty calendar cells.
+*/
+
+.calendar-day.empty {
+    cursor: default;
+
+    pointer-events: none;
+}
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .dashboard-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .today-panel {
+
+        padding-right: 0;
+
+        border-right: none;
+
+        border-bottom: 1px solid #ccc;
+    }
+
+
+    .activity-panel {
+
+        padding-left: 0;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .page {
+
+        width: 92%;
+
+        padding-top: 20px;
+    }
+
+
+    .current-date {
+
+        display: none;
+    }
+
+
+    .month-header {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+
+    .month-stats {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+
+    .activity-selector {
+
+        display: block;
+    }
+
+
+    .activity-buttons {
+
+        justify-content: flex-start;
+
+        margin-top: 15px;
+    }
+
+
+    .entry {
+
+        grid-template-columns:
+            55px 1fr;
+    }
+
+
+    .entry-duration {
+
+        display: none;
+    }
+}

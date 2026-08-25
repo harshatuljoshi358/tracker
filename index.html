@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal Log</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="page">
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+            <span>PERSONAL</span>
+            <span>LOG / 2026</span>
+        </div>
+
+        <div class="current-date" id="currentDate">
+            25 AUGUST 2026
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         MONTH HEADER
+    ========================================== -->
+
+    <section class="month-header">
+
+        <div class="month-title">
+            <span class="label">MONTH</span>
+            <h1 id="monthName">August</h1>
+        </div>
+
+
+        <div class="month-stats">
+
+            <div class="stat">
+                <strong id="dayNumber">25</strong>
+                <span>DAY</span>
+            </div>
+
+            <div class="stat">
+                <strong id="entryCount">41</strong>
+                <span>ENTRIES</span>
+            </div>
+
+            <div class="stat">
+                <strong id="loggedHours">37h</strong>
+                <span>LOGGED</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         MAIN DASHBOARD
+    ========================================== -->
+
+    <section class="dashboard-grid">
+
+
+        <!-- =====================================
+             LEFT: TODAY
+        ====================================== -->
+
+        <section class="today-panel">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="label">TODAY</span>
+                    <h2 id="todayHeading">
+                        25 August
+                    </h2>
+                </div>
+
+                <span class="day-name">
+                    TUESDAY
+                </span>
+
+            </div>
+
+
+            <!-- TASKS -->
+
+            <div class="tasks-section">
+
+                <div class="subheading">
+                    <span>TASKS</span>
+                    <span id="taskCount">2 / 4</span>
+                </div>
+
+
+                <div id="taskList" class="task-list">
+                    <!-- JavaScript inserts tasks -->
+                </div>
+
+
+                <button
+                    class="text-button"
+                    id="addTaskButton"
+                    type="button"
+                >
+                    + ADD TASK
+                </button>
+
+            </div>
+
+
+            <!-- HIGHLIGHT + JOURNAL -->
+
+            <div class="reflection-section">
+
+                <div class="reflection-block">
+
+                    <span class="label">
+                        ★ HIGHLIGHT
+                    </span>
+
+                    <p id="highlightText">
+                        New bench press PR.
+                    </p>
+
+                </div>
+
+
+                <div class="reflection-block">
+
+                    <span class="label">
+                        JOURNAL
+                    </span>
+
+                    <p id="journalText">
+                        Gym felt strong today.
+                        Made good progress with GraphRAG.
+                        Football wasn't great.
+                        Need to work on positioning.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             RIGHT: CALENDAR + ACTIVITY
+        ====================================== -->
+
+        <section class="activity-panel">
+
+
+            <!-- ACTIVITY SELECTOR -->
+
+            <div class="activity-selector">
+
+                <div>
+                    <span class="label">
+                        ACTIVITY
+                    </span>
+
+                    <h2 id="selectedActivityName">
+                        All Activity
+                    </h2>
+                </div>
+
+                <div class="activity-buttons">
+
+                    <button
+                        class="activity-button active"
+                        data-activity="all"
+                        type="button"
+                    >
+                        ALL
+                    </button>
+
+                    <button
+                        class="activity-button"
+                        data-activity="gym"
+                        type="button"
+                    >
+                        GYM
+                    </button>
+
+                    <button
+                        class="activity-button"
+                        data-activity="football"
+                        type="button"
+                    >
+                        FOOTBALL
+                    </button>
+
+                    <button
+                        class="activity-button"
+                        data-activity="study"
+                        type="button"
+                    >
+                        STUDY
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- CALENDAR -->
+
+            <div class="calendar">
+
+                <div class="calendar-header">
+
+                    <button
+                        class="calendar-arrow"
+                        id="previousMonth"
+                        type="button"
+                    >
+                        ←
+                    </button>
+
+                    <span id="calendarMonth">
+                        AUGUST 2026
+                    </span>
+
+                    <button
+                        class="calendar-arrow"
+                        id="nextMonth"
+                        type="button"
+                    >
+                        →
+                    </button>
+
+                </div>
+
+
+                <div class="weekdays">
+
+                    <span>M</span>
+                    <span>T</span>
+                    <span>W</span>
+                    <span>T</span>
+                    <span>F</span>
+                    <span>S</span>
+                    <span>S</span>
+
+                </div>
+
+
+                <div
+                    class="calendar-days"
+                    id="calendarDays"
+                >
+                    <!-- JavaScript creates calendar -->
+                </div>
+
+            </div>
+
+
+            <!-- ACTIVITY SUMMARY -->
+
+            <div
+                class="activity-summary"
+                id="activitySummary"
+            >
+                <!-- JavaScript inserts summary -->
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!-- =========================================
+         RECENT ACTIVITY
+    ========================================== -->
+
+    <section class="recent-section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="label">ACTIVITY LOG</span>
+                <h2>Recent entries</h2>
+            </div>
+
+            <button
+                class="text-button"
+                type="button"
+            >
+                VIEW ALL →
+            </button>
+
+        </div>
+
+
+        <div
+            class="entry-list"
+            id="entryList"
+        >
+            <!-- JavaScript inserts entries -->
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="footer">
+
+        <span>
+            PERSONAL LOG / 2026
+        </span>
+
+        <span>
+            LOCAL
+        </span>
+
+    </footer>
+
+</main>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
