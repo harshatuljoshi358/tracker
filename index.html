@@ -121,6 +121,25 @@
             </div>
 
 
+            <!-- WORKOUT (gym only) -->
+
+            <div
+                id="dailyWorkout"
+                class="daily-workout is-hidden"
+            >
+                <!-- JavaScript inserts the workout block -->
+            </div>
+
+
+            <button
+                class="text-button is-hidden"
+                id="newWorkoutButton"
+                type="button"
+            >
+                + NEW WORKOUT
+            </button>
+
+
             <!-- HIGHLIGHT + JOURNAL -->
 
             <div class="reflection-section">
@@ -186,7 +205,7 @@
                         data-activity="all"
                         type="button"
                     >
-                        ALL
+                        TODAY
                     </button>
 
                     <button
@@ -273,7 +292,7 @@
             <!-- ACTIVITY SUMMARY -->
 
             <div
-                class="activity-summary"
+                class="activity-summary is-hidden"
                 id="activitySummary"
             >
                 <!-- JavaScript inserts summary -->
@@ -285,35 +304,54 @@
 
 
     <!-- =========================================
-         RECENT ACTIVITY
+         ACTIVITY INSIGHT (chart + breakdown)
+         — full-width section below dashboard
     ========================================== -->
 
-    <section class="recent-section">
-
-        <div class="section-heading">
-
-            <div>
-                <span class="label">ACTIVITY LOG</span>
-                <h2>Recent entries</h2>
-            </div>
-
-            <button
-                class="text-button"
-                type="button"
-            >
-                VIEW ALL →
-            </button>
-
-        </div>
+    <section
+        class="insight-section is-hidden"
+        id="activityInsight"
+    >
+        <!-- JavaScript inserts chart + breakdown -->
+    </section>
 
 
-        <div
-            class="entry-list"
-            id="entryList"
-        >
-            <!-- JavaScript inserts entries -->
-        </div>
+    <!-- =========================================
+         WORKOUT EDITOR (gym only)
+         — full-width section below dashboard
+    ========================================== -->
 
+    <section
+        class="workout-editor-section is-hidden"
+        id="workoutEditor"
+    >
+        <!-- JavaScript inserts the editor -->
+    </section>
+
+
+    <!-- =========================================
+         EXERCISE HISTORY (gym only)
+         — full-width section below dashboard
+    ========================================== -->
+
+    <section
+        class="exercise-history-section is-hidden"
+        id="exerciseHistory"
+    >
+        <!-- JavaScript inserts the history view -->
+    </section>
+
+
+    <!-- =========================================
+         RECENT LOGS (default for TODAY view)
+         — full-width section below dashboard
+    ========================================== -->
+
+    <section
+        class="recent-logs-section"
+        id="recentLogs"
+    >
+        <!-- JavaScript inserts recent entries -->
     </section>
 
 
@@ -324,11 +362,11 @@
     <footer class="footer">
 
         <span>
-            PERSONAL LOG / 2026
+        
         </span>
 
         <span>
-            LOCAL
+            
         </span>
 
     </footer>
@@ -336,7 +374,7 @@
 </main>
 
 
-<script src="app.js"></script>
+<script type="module" src="app.js"></script>
 
 </body>
 </html>

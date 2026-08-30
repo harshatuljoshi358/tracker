@@ -10,15 +10,21 @@
 
 
 body {
-    background: #f8f8f6;
+    background: #f5f5f1;
     color: #111;
 
     font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
         Arial,
-        Helvetica,
         sans-serif;
 
     line-height: 1.4;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -27,7 +33,7 @@ body {
 ===================================================== */
 
 .page {
-    width: min(1100px, 92%);
+    width: min(1240px, 94%);
     margin: 0 auto;
 
     padding: 35px 0 60px;
@@ -176,7 +182,11 @@ strong {
     display: grid;
 
     grid-template-columns:
-        1.15fr 0.85fr;
+        1.1fr 0.9fr;
+
+    gap: 50px;
+
+    padding: 45px 0;
 
     border-bottom: 1px solid #111;
 }
@@ -197,6 +207,10 @@ strong {
 .activity-panel {
 
     padding: 35px 0 35px 30px;
+
+    display: flex;
+
+    flex-direction: column;
 }
 
 
@@ -282,10 +296,12 @@ strong {
 
 .task-checkbox {
 
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
 
-    border: 1px solid #111;
+    border: 1.5px solid #111;
+
+    border-radius: 50%;
 
     display: flex;
 
@@ -293,6 +309,10 @@ strong {
     align-items: center;
 
     flex-shrink: 0;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
 }
 
 
@@ -344,13 +364,174 @@ strong {
 
     letter-spacing: 0.1em;
 
+    font-weight: 600;
+
     cursor: pointer;
+
+    transition: color 0.2s ease;
 }
 
 
 .text-button:hover {
 
     color: #111;
+}
+
+
+/* =====================================================
+   ACTIVITY SUMMARY
+===================================================== */
+
+.activity-summary {
+
+    margin-top: 28px;
+
+    padding: 22px;
+
+    background: #fff;
+
+    border-radius: 16px;
+
+    border: 1px solid #ececea;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    box-shadow:
+        0 1px 2px
+        rgba(0, 0, 0, 0.02);
+}
+
+
+.summary-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: baseline;
+
+    gap: 12px;
+}
+
+
+.summary-label {
+
+    font-size: 9px;
+
+    letter-spacing: 0.12em;
+
+    color: #888;
+
+    font-weight: 600;
+}
+
+
+.summary-value {
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    color: #111;
+
+    font-weight: 400;
+}
+
+
+.day-entry {
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #eee;
+
+    transition: background 0.2s ease;
+}
+
+
+.day-entry:last-child {
+
+    border-bottom: none;
+
+    padding-bottom: 0;
+}
+
+
+.day-entry.compact {
+
+    padding: 14px 0;
+}
+
+
+.day-entry-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 12px;
+}
+
+
+.day-entry-header h3 {
+
+    margin-top: 4px;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    font-weight: 400;
+}
+
+
+.day-entry .duration {
+
+    font-size: 11px;
+
+    color: #888;
+
+    font-variant-numeric:
+        tabular-nums;
+}
+
+
+.entry-details {
+
+    margin-top: 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    color: #555;
+
+    line-height: 1.55;
+}
+
+
+.no-entry p {
+
+    margin-top: 8px;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    color: #888;
+
+    font-style: italic;
 }
 
 
@@ -424,7 +605,7 @@ strong {
 
     flex-wrap: wrap;
 
-    gap: 4px;
+    gap: 6px;
 
     justify-content: flex-end;
 }
@@ -436,21 +617,32 @@ strong {
 
     background: transparent;
 
-    padding: 5px 7px;
+    padding: 8px 14px;
 
-    font-size: 8px;
+    font-size: 9px;
 
-    letter-spacing: 0.08em;
+    font-weight: 600;
+
+    letter-spacing: 0.1em;
 
     color: #888;
 
     cursor: pointer;
+
+    border-radius: 999px;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.15s ease;
 }
 
 
 .activity-button:hover {
 
     color: #111;
+
+    background: rgba(0, 0, 0, 0.04);
 }
 
 
@@ -459,6 +651,10 @@ strong {
     background: #111;
 
     color: #fff;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.12);
 }
 
 
@@ -467,7 +663,13 @@ strong {
 ===================================================== */
 
 .calendar {
-    padding-top: 25px;
+    padding-top: 28px;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
 }
 
 
@@ -477,7 +679,7 @@ strong {
     justify-content: space-between;
     align-items: center;
 
-    margin-bottom: 15px;
+    margin-bottom: 24px;
 
     font-size: 9px;
     letter-spacing: 0.12em;
@@ -493,12 +695,22 @@ strong {
 
     cursor: pointer;
 
-    padding: 5px;
+    padding: 10px 14px;
+
+    border-radius: 999px;
+
+    font-size: 16px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
 }
 
 
 .calendar-arrow:hover {
     color: #111;
+
+    background: rgba(0, 0, 0, 0.05);
 }
 
 
@@ -514,28 +726,38 @@ strong {
 
 
 .weekdays {
-    padding-bottom: 8px;
+    padding-bottom: 14px;
 
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e5e5e0;
 
-    font-size: 8px;
+    font-size: 9px;
+
+    letter-spacing: 0.16em;
 
     color: #999;
+
+    font-weight: 600;
 }
 
 
 .calendar-days {
-    padding-top: 8px;
+    padding-top: 18px;
+
+    flex: 1;
+
+    align-content: stretch;
+
+    row-gap: 6px;
 }
 
 
 .calendar-day {
     position: relative;
 
-    width: 36px;
-    height: 36px;
+    width: 60px;
+    height: 60px;
 
-    margin: 3px auto;
+    margin: 5px auto;
 
     display: flex;
 
@@ -548,65 +770,97 @@ strong {
 
     border-radius: 50%;
 
-    font-family: Arial, sans-serif;
+    font-family: inherit;
 
-    font-size: 10px;
+    font-size: 16px;
 
-    color: #777;
+    font-weight: 500;
+
+    color: #b8b8b3;
 
     cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.15s ease,
+        box-shadow 0.25s ease;
 }
 
 
 .calendar-day:hover {
-    outline: 1px solid #aaa;
+    background: rgba(0, 0, 0, 0.04);
+
+    color: #111;
+
+    transform: scale(1.06);
 }
 
 
 /*
     A logged day becomes a black circle.
+    (Only shown when a specific activity
+    is selected, not on "All".)
 */
 
 .calendar-day.logged {
     background: #111;
 
     color: #fff;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, 0.15);
 }
 
 
 /*
-    Today's date gets an outline
-    if it isn't logged.
+    Today's date gets a filled black circle
+    so it's the only marked day on "All".
 */
 
-.calendar-day.today:not(.logged) {
-    outline: 1px solid #111;
+.calendar-day.today {
+    background: #111;
 
-    color: #111;
+    color: #fff;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, 0.15);
 }
 
 
 /*
-    Selected day gets an outlined circle
+    Selected day gets a soft ring
     so it remains distinguishable.
 */
 
 .calendar-day.selected {
-    outline: 2px solid #111;
+    box-shadow:
+        0 0 0 2px
+        #f5f5f1,
+        0 0 0 4px #111;
 
-    outline-offset: 2px;
+    transform: scale(1.06);
 }
 
 
 /*
-    If the selected day is also logged,
-    keep the black circle.
+    If the selected day is also logged
+    or today, keep the filled circle plus
+    the ring.
 */
 
-.calendar-day.logged.selected {
-    outline: 2px solid #111;
-
-    outline-offset: 2px;
+.calendar-day.logged.selected,
+.calendar-day.today.selected {
+    box-shadow:
+        0 0 0 2px
+        #f5f5f1,
+        0 0 0 4px #111,
+        0 3px 12px
+        rgba(0, 0, 0, 0.15);
 }
 
 
@@ -618,6 +872,403 @@ strong {
     cursor: default;
 
     pointer-events: none;
+}
+
+
+/* Hide the activity summary block — calendar owns the panel now. */
+
+.activity-summary.is-hidden {
+
+    display: none;
+}
+
+
+/* =====================================================
+   ACTIVITY INSIGHT — full-width section
+   below the dashboard grid
+===================================================== */
+
+.insight-section {
+
+    margin-top: 0;
+
+    padding: 50px 0 70px;
+
+    border-bottom: 1px solid #111;
+
+    position: relative;
+}
+
+
+.insight-section.is-hidden {
+
+    display: none;
+}
+
+
+/*
+    Heading sits flush top-left,
+    chart fills the panel below.
+*/
+
+.insight-meta {
+
+    margin-bottom: 40px;
+}
+
+
+.insight-meta .label {
+
+    margin-bottom: 8px;
+}
+
+
+.insight-meta h2 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(36px, 5vw, 52px);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.04em;
+
+    font-weight: 400;
+}
+
+
+.insight-meta .insight-period {
+
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.14em;
+
+    color: #888;
+
+    font-weight: 600;
+}
+
+
+/* Weekly bar chart — full width, no card */
+
+.weekly-chart {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    align-items: end;
+
+    gap: 24px;
+
+    height: 220px;
+
+    padding-bottom: 6px;
+}
+
+
+.bar {
+
+    position: relative;
+
+    width: 100%;
+
+    background: #111;
+
+    border-radius: 8px;
+
+    min-height: 6px;
+
+    transition:
+        height 0.5s ease,
+        opacity 0.2s ease;
+
+    cursor: pointer;
+
+    opacity: 0.92;
+}
+
+
+.bar:hover {
+
+    opacity: 1;
+}
+
+
+.bar::after {
+
+    content: attr(data-value);
+
+    position: absolute;
+
+    top: -22px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    color: #111;
+
+    letter-spacing: 0.04em;
+
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+
+    font-variant-numeric:
+        tabular-nums;
+
+    white-space: nowrap;
+}
+
+
+.bar:hover::after {
+
+    opacity: 1;
+}
+
+
+.bar-label {
+
+    margin-top: 12px;
+
+    text-align: center;
+
+    font-size: 9px;
+
+    letter-spacing: 0.14em;
+
+    color: #888;
+
+    font-weight: 600;
+}
+
+
+.bar-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-end;
+}
+
+
+/* Segmented breakdown */
+
+.breakdown {
+
+    margin-top: 50px;
+
+    padding-top: 28px;
+
+    border-top: 1px solid #ececea;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px 48px;
+}
+
+
+.breakdown-row {
+
+    display: grid;
+
+    grid-template-columns:
+        140px 1fr 80px;
+
+    align-items: center;
+
+    gap: 16px;
+}
+
+
+.breakdown-label {
+
+    font-size: 12px;
+
+    color: #444;
+
+    font-weight: 500;
+
+    letter-spacing: 0.02em;
+}
+
+
+.breakdown-track {
+
+    height: 8px;
+
+    background: #ececea;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+
+.breakdown-fill {
+
+    height: 100%;
+
+    background: #111;
+
+    border-radius: 999px;
+
+    transition: width 0.6s ease;
+}
+
+
+.breakdown-value {
+
+    text-align: right;
+
+    font-size: 12px;
+
+    color: #777;
+
+    font-variant-numeric:
+        tabular-nums;
+
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   RECENT LOGS — full-width section (TODAY view)
+===================================================== */
+
+.recent-logs-section {
+
+    margin-top: 0;
+
+    padding: 50px 0 70px;
+
+    border-bottom: 1px solid #111;
+
+    position: relative;
+}
+
+
+.recent-logs-section.is-hidden {
+
+    display: none;
+}
+
+
+.recent-logs-meta {
+
+    margin-bottom: 40px;
+}
+
+
+.recent-logs-meta .label {
+
+    margin-bottom: 8px;
+}
+
+
+.recent-logs-meta h2 {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(36px, 5vw, 52px);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.04em;
+
+    font-weight: 400;
+}
+
+
+.recent-logs-meta span {
+
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.14em;
+
+    color: #888;
+
+    font-weight: 600;
+}
+
+
+.recent-log {
+
+    display: grid;
+
+    grid-template-columns:
+        120px 1fr auto;
+
+    gap: 32px;
+
+    align-items: baseline;
+
+    padding: 22px 0;
+
+    border-bottom: 1px solid #ececea;
+}
+
+
+.recent-log:first-child {
+
+    border-top: 1px solid #ececea;
+}
+
+
+.recent-log-activity {
+
+    font-size: 9px;
+
+    letter-spacing: 0.14em;
+
+    color: #888;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+}
+
+
+.recent-log-title {
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    color: #111;
+}
+
+
+.recent-log-meta {
+
+    font-size: 11px;
+
+    color: #888;
+
+    letter-spacing: 0.06em;
+
+    font-variant-numeric:
+        tabular-nums;
 }
 /* =====================================================
    RESPONSIVE
@@ -690,18 +1341,5 @@ strong {
         justify-content: flex-start;
 
         margin-top: 15px;
-    }
-
-
-    .entry {
-
-        grid-template-columns:
-            55px 1fr;
-    }
-
-
-    .entry-duration {
-
-        display: none;
     }
 }
