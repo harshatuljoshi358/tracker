@@ -3,18 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Personal Log</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"
+    ></script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
 </head>
 
 <body>
 
-<<<<<<< Updated upstream
-<main class="page">
-=======
     <!-- ==================================================
          AUTH SCREEN
          ================================================== -->
@@ -102,49 +114,17 @@
 
 
     <main class="page" style="display: none;">
->>>>>>> Stashed changes
 
-    <!-- =========================================
-         HEADER
-    ========================================== -->
+        <!-- ==================================================
+             TOP BAR
+             ================================================== -->
 
-    <header class="topbar">
+        <header class="top-bar">
 
-        <div class="brand">
-            <span>PERSONAL</span>
-            <span>LOG / 2026</span>
-        </div>
-
-        <div class="current-date" id="currentDate">
-            25 AUGUST 2026
-        </div>
-
-    </header>
-
-
-    <!-- =========================================
-         MONTH HEADER
-    ========================================== -->
-
-    <section class="month-header">
-
-        <div class="month-title">
-            <span class="label">MONTH</span>
-            <h1 id="monthName">August</h1>
-        </div>
-
-
-        <div class="month-stats">
-
-            <div class="stat">
-                <strong id="dayNumber">25</strong>
-                <span>DAY</span>
+            <div class="top-left">
+                PERSONAL LOG / 2026
             </div>
 
-<<<<<<< Updated upstream
-            <div class="stat">
-                <strong id="entryCount">41</strong>
-=======
             <div class="top-right">
                 <span
                     id="user-email"
@@ -188,336 +168,114 @@
 
             <div class="month-stat">
                 <strong>—</strong>
->>>>>>> Stashed changes
                 <span>ENTRIES</span>
             </div>
 
-            <div class="stat">
-                <strong id="loggedHours">37h</strong>
-                <span>LOGGED</span>
+            <div class="month-stat">
+                <strong>—</strong>
+                <span>HOURS</span>
             </div>
 
-        </div>
+            <div
+                id="streak-stat"
+                class="month-stat month-stat--streak"
+            >
+                <strong id="streak-value">—</strong>
+                <span>STREAK</span>
 
-    </section>
+                <div
+                    id="streak-tooltip"
+                    class="streak-tooltip"
+                ></div>
+
+            </div>
+
+        </section>
 
 
-    <!-- =========================================
-         MAIN DASHBOARD
-    ========================================== -->
+        <!-- ==================================================
+             MAIN CONTENT
+             ================================================== -->
 
-    <section class="dashboard-grid">
+        <section class="main-content">
 
 
-        <!-- =====================================
-             LEFT: TODAY
-        ====================================== -->
+            <!-- =================================================
+                 LEFT: DAILY LOG
+                 ================================================= -->
 
-        <section class="today-panel">
+            <section class="daily-panel"></section>
 
-            <div class="section-heading">
 
-                <div>
-                    <span class="label">TODAY</span>
-                    <h2 id="todayHeading">
-                        25 August
-                    </h2>
+            <!-- =================================================
+                 RIGHT: CALENDAR ONLY
+                 ================================================= -->
+
+            <section class="calendar-panel">
+
+                <div class="calendar-panel-header">
+
+                    <span class="eyebrow">
+                        CALENDAR
+                    </span>
+
+                    <button
+                        id="journal-search-btn"
+                        class="journal-search-button"
+                        title="Search journal"
+                        aria-label="Search journal"
+                    >
+                        <span class="search-icon"></span>
+                    </button>
+
                 </div>
 
-                <span class="day-name">
-                    TUESDAY
+                <div id="calendar"></div>
+
+            </section>
+
+        </section>
+
+
+        <!-- ==================================================
+             STATISTICS / CHARTS
+             ================================================== -->
+
+        <section class="stats-section">
+
+            <div class="stats-header">
+
+                <span class="eyebrow">
+                    STATISTICS
                 </span>
 
             </div>
 
-
-            <!-- TASKS -->
-
-            <div class="tasks-section">
-
-                <div class="subheading">
-                    <span>TASKS</span>
-                    <span id="taskCount">2 / 4</span>
-                </div>
-
-
-                <div id="taskList" class="task-list">
-                    <!-- JavaScript inserts tasks -->
-                </div>
-
-
-                <button
-                    class="text-button"
-                    id="addTaskButton"
-                    type="button"
-                >
-                    + ADD TASK
-                </button>
-
-            </div>
-
-
-            <!-- WORKOUT (gym only) -->
-
-            <div
-                id="dailyWorkout"
-                class="daily-workout is-hidden"
-            >
-                <!-- JavaScript inserts the workout block -->
-            </div>
-
-
-            <button
-                class="text-button is-hidden"
-                id="newWorkoutButton"
-                type="button"
-            >
-                + NEW WORKOUT
-            </button>
-
-
-            <!-- HIGHLIGHT + JOURNAL -->
-
-            <div class="reflection-section">
-
-                <div class="reflection-block">
-
-                    <span class="label">
-                        ★ HIGHLIGHT
-                    </span>
-
-                    <p id="highlightText">
-                        New bench press PR.
-                    </p>
-
-                </div>
-
-
-                <div class="reflection-block">
-
-                    <span class="label">
-                        JOURNAL
-                    </span>
-
-                    <p id="journalText">
-                        Gym felt strong today.
-                        Made good progress with GraphRAG.
-                        Football wasn't great.
-                        Need to work on positioning.
-                    </p>
-
-                </div>
-
-            </div>
+            <div id="stats"></div>
 
         </section>
 
 
-        <!-- =====================================
-             RIGHT: CALENDAR + ACTIVITY
-        ====================================== -->
+        <!-- ==================================================
+             ACTIVITY FORM
+             
+             This is an overlay/popup.
+             It is opened by the + button in Activities.
+             ================================================== -->
 
-        <section class="activity-panel">
-
-
-            <!-- ACTIVITY SELECTOR -->
-
-            <div class="activity-selector">
-
-                <div>
-                    <span class="label">
-                        ACTIVITY
-                    </span>
-
-                    <h2 id="selectedActivityName">
-                        All Activity
-                    </h2>
-                </div>
-
-                <div class="activity-buttons">
-
-                    <button
-                        class="activity-button active"
-                        data-activity="all"
-                        type="button"
-                    >
-                        TODAY
-                    </button>
-
-                    <button
-                        class="activity-button"
-                        data-activity="gym"
-                        type="button"
-                    >
-                        GYM
-                    </button>
-
-                    <button
-                        class="activity-button"
-                        data-activity="football"
-                        type="button"
-                    >
-                        FOOTBALL
-                    </button>
-
-                    <button
-                        class="activity-button"
-                        data-activity="study"
-                        type="button"
-                    >
-                        STUDY
-                    </button>
-
-                </div>
-
-            </div>
+        <div
+            id="activity-panel"
+            class="activity-panel"
+        ></div>
 
 
-            <!-- CALENDAR -->
+    </main>
 
-            <div class="calendar">
-
-                <div class="calendar-header">
-
-                    <button
-                        class="calendar-arrow"
-                        id="previousMonth"
-                        type="button"
-                    >
-                        ←
-                    </button>
-
-                    <span id="calendarMonth">
-                        AUGUST 2026
-                    </span>
-
-                    <button
-                        class="calendar-arrow"
-                        id="nextMonth"
-                        type="button"
-                    >
-                        →
-                    </button>
-
-                </div>
-
-
-                <div class="weekdays">
-
-                    <span>M</span>
-                    <span>T</span>
-                    <span>W</span>
-                    <span>T</span>
-                    <span>F</span>
-                    <span>S</span>
-                    <span>S</span>
-
-                </div>
-
-
-                <div
-                    class="calendar-days"
-                    id="calendarDays"
-                >
-                    <!-- JavaScript creates calendar -->
-                </div>
-
-            </div>
-
-
-            <!-- ACTIVITY SUMMARY -->
-
-            <div
-                class="activity-summary is-hidden"
-                id="activitySummary"
-            >
-                <!-- JavaScript inserts summary -->
-            </div>
-
-        </section>
-
-    </section>
-
-
-    <!-- =========================================
-         ACTIVITY INSIGHT (chart + breakdown)
-         — full-width section below dashboard
-    ========================================== -->
-
-    <section
-        class="insight-section is-hidden"
-        id="activityInsight"
-    >
-        <!-- JavaScript inserts chart + breakdown -->
-    </section>
-
-<<<<<<< Updated upstream
-
-    <!-- =========================================
-         WORKOUT EDITOR (gym only)
-         — full-width section below dashboard
-    ========================================== -->
-
-    <section
-        class="workout-editor-section is-hidden"
-        id="workoutEditor"
-    >
-        <!-- JavaScript inserts the editor -->
-    </section>
-
-
-    <!-- =========================================
-         EXERCISE HISTORY (gym only)
-         — full-width section below dashboard
-    ========================================== -->
-
-    <section
-        class="exercise-history-section is-hidden"
-        id="exerciseHistory"
-    >
-        <!-- JavaScript inserts the history view -->
-    </section>
-
-
-    <!-- =========================================
-         RECENT LOGS (default for TODAY view)
-         — full-width section below dashboard
-    ========================================== -->
-
-    <section
-        class="recent-logs-section"
-        id="recentLogs"
-    >
-        <!-- JavaScript inserts recent entries -->
-    </section>
-
-
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
-
-    <footer class="footer">
-
-        <span>
-        
-        </span>
-
-        <span>
-            
-        </span>
-
-    </footer>
-
-</main>
-
-
-<script type="module" src="app.js"></script>
-=======
     <script
         type="module"
         src="./js/auth.js"
     ></script>
->>>>>>> Stashed changes
 
 </body>
+
 </html>
