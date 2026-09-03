@@ -1,0 +1,2671 @@
+/* ============================================================
+   RESET
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background: #fdfdfc;
+    color: #171717;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* ============================================================
+   PAGE
+   ============================================================ */
+
+.page {
+
+    width: min(
+        1400px,
+        calc(100% - 80px)
+    );
+
+    margin: 0 auto;
+
+    padding-top: 35px;
+    padding-bottom: 80px;
+}
+
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+h1,
+h2,
+h3 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-weight: 400;
+}
+
+
+.eyebrow {
+
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #777;
+}
+
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+
+.top-bar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid #222;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    color: #555;
+}
+
+
+/* ============================================================
+   MONTH HEADER
+   ============================================================ */
+
+.month-header {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        130px
+        130px
+        130px
+        130px;
+
+    align-items: center;
+
+    min-height: 170px;
+
+    border-bottom: 1px solid #222;
+}
+
+
+.month-title h1 {
+
+    margin: 8px 0 0;
+
+    font-size: 64px;
+
+    line-height: 1;
+}
+
+
+.month-stat {
+
+    min-height: 65px;
+
+    padding-left: 25px;
+
+    border-left: 1px solid #d0d0d0;
+}
+
+
+.month-stat strong {
+
+    display: block;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 38px;
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+.month-stat span {
+
+    display: block;
+
+    margin-top: 9px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color: #777;
+}
+
+
+/* Streak tooltip: shows the most recent entry on hover. */
+
+.month-stat--streak {
+
+    position: relative;
+
+    cursor: default;
+}
+
+
+.month-stat--streak .streak-tooltip {
+
+    position: absolute;
+
+    top: 100%;
+
+    left: 25px;
+
+    z-index: 50;
+
+    width: max-content;
+
+    max-width: 260px;
+
+    padding: 10px 14px;
+
+    margin-top: 10px;
+
+    border: 1px solid #222;
+
+    background: #171717;
+
+    color: #fdfdfc;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    letter-spacing: 0;
+
+    text-transform: none;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.15s ease,
+        visibility 0.15s ease;
+}
+
+
+.month-stat--streak:hover .streak-tooltip {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
+.main-content {
+
+    display: grid;
+
+    grid-template-columns:
+        0.95fr
+        1.05fr;
+
+    min-height: 700px;
+
+    border-bottom: 1px solid #222;
+}
+
+
+/* ============================================================
+   DAILY PANEL
+   ============================================================ */
+
+.daily-panel {
+
+    padding-top: 40px;
+
+    padding-right: 45px;
+
+    max-height: 700px;
+
+    overflow-y: auto;
+}
+
+
+/* ============================================================
+   DAILY DATE
+   ============================================================ */
+
+.daily-date {
+
+    margin: 5px 0 30px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #222;
+
+    font-size: 34px;
+
+    line-height: 1;
+}
+
+
+/* ============================================================
+   DAILY SECTIONS
+   ============================================================ */
+
+.daily-section {
+
+    margin-bottom: 35px;
+}
+
+
+.daily-section h2 {
+
+    margin: 0 0 13px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #777;
+}
+
+
+/* ============================================================
+   SECTION HEADER
+   ============================================================ */
+
+.section-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 4px;
+}
+
+
+/* ============================================================
+   TASKS
+   ============================================================ */
+
+.task-list {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.task {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 42px;
+
+    border-bottom: 1px solid #ddd;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 15px;
+}
+
+
+.task input {
+
+    width: 15px;
+    height: 15px;
+
+    margin: 0;
+
+    accent-color: #171717;
+}
+
+
+.task span.completed {
+
+    color: #999;
+
+    text-decoration: line-through;
+}
+
+
+.task > span {
+
+    flex: 1;
+}
+
+
+.task-actions {
+
+    display: flex;
+
+    gap: 6px;
+}
+
+
+.task-btn {
+
+    padding: 3px 8px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 4px;
+
+    background: #f5f5f5;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+
+.task-btn:hover {
+
+    background: #eaeaea;
+}
+
+
+.task-btn--danger {
+
+    color: #a33;
+
+    border-color: #e0b4b4;
+}
+
+
+.task-btn--danger:hover {
+
+    background: #f7e6e6;
+}
+
+
+.add-task-button--disabled {
+
+    color: #bbb;
+
+    cursor: not-allowed;
+}
+
+
+/* ============================================================
+   TASK PLUS BUTTON
+   ============================================================ */
+
+.add-task-button {
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   INLINE TASK FORM
+   ============================================================ */
+
+.inline-task-form {
+
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 8px;
+
+    margin-bottom: 8px;
+}
+
+
+.inline-task-form input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 8px 10px;
+
+    border: 1px solid #cfcfcf;
+
+    border-radius: 4px;
+
+    background: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+
+.inline-task-form input:focus {
+
+    border-color: #171717;
+}
+
+
+.inline-task-form button {
+
+    padding: 8px 14px;
+
+    border: 1px solid #171717;
+
+    border-radius: 4px;
+
+    background: #171717;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   HIGHLIGHT
+   ============================================================ */
+
+.daily-section input[type="text"] {
+
+    width: 100%;
+
+    padding: 10px 0;
+
+    border: 0;
+
+    border-bottom: 1px solid #ddd;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 15px;
+}
+
+
+.daily-section input[type="text"]:focus {
+
+    border-bottom-color: #555;
+}
+
+
+/* ============================================================
+   JOURNAL
+   ============================================================ */
+
+.daily-section textarea {
+
+    width: 100%;
+
+    min-height: 110px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-bottom: 1px solid #ddd;
+
+    outline: none;
+
+    resize: vertical;
+
+    background: transparent;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+.daily-section textarea:focus {
+
+    border-bottom-color: #555;
+}
+
+
+/* ============================================================
+   ACTIVITIES
+   ============================================================ */
+
+.activities-section {
+
+    margin-top: 10px;
+
+    padding-top: 5px;
+
+    position: relative;
+}
+
+
+.activities-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+
+.activities-header h2 {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #777;
+}
+
+
+/* ============================================================
+   CALENDAR PANEL
+   ============================================================ */
+
+.calendar-panel {
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 700px;
+
+    padding-top: 40px;
+
+    padding-left: 45px;
+
+    border-left: 1px solid #ccc;
+}
+
+
+.calendar-panel-header {
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #222;
+}
+
+
+/* ============================================================
+   CALENDAR
+   ============================================================ */
+
+#calendar {
+
+    flex: 1;
+
+    width: 100%;
+
+    padding-top: 24px;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* ============================================================
+   CALENDAR FILTERS
+   ============================================================ */
+
+.calendar-filters {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 24px;
+}
+
+
+.calendar-filter {
+
+    padding: 7px 14px;
+
+    border: 1px solid #d8d8d8;
+    border-radius: 20px;
+
+    background: transparent;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    font-size: 13px;
+
+    color: #666;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.calendar-filter:hover {
+
+    border-color: #171717;
+    color: #171717;
+    background: #f0f0f0;
+}
+
+
+.calendar-filter.active {
+
+    border-color: #171717;
+    background: #171717;
+    color: white;
+}
+
+
+/* ============================================================
+   CALENDAR HEADER
+   ============================================================ */
+
+.calendar-header {
+
+    display: grid;
+
+    grid-template-columns:
+        44px
+        1fr
+        44px;
+
+    align-items: center;
+
+    margin: 10px 0 22px;
+}
+
+
+.calendar-header h2 {
+
+    margin: 0;
+
+    text-align: center;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.5px;
+
+    color: #171717;
+}
+
+
+.calendar-header button {
+
+    width: 36px;
+    height: 36px;
+
+    border: 1px solid #e0e0e0;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    font-size: 20px;
+
+    line-height: 1;
+
+    color: #666;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.calendar-header button:hover {
+
+    background: #171717;
+
+    color: #fff;
+
+    border-color: #171717;
+}
+
+
+/* ============================================================
+   WEEKDAYS
+   ============================================================ */
+
+.calendar-weekdays {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+.calendar-weekdays div {
+
+    text-align: center;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: #999;
+}
+
+
+/* ============================================================
+   CALENDAR DAYS
+   ============================================================ */
+
+.calendar-days {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    grid-auto-rows: 1fr;
+
+    gap: 8px;
+
+    flex: 1;
+
+    padding-top: 18px;
+}
+
+
+.calendar-day {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    max-width: 48px;
+
+    justify-self: center;
+
+    align-self: center;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #555;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.calendar-day:hover {
+
+    background: #e8e8e8;
+}
+
+
+.calendar-day.active {
+
+    background: #171717;
+
+    color: white;
+
+    font-weight: 600;
+}
+
+
+.calendar-day.active:hover {
+
+    background: #171717;
+}
+
+
+.calendar-day.journal::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 5px;
+
+    left: 50%;
+
+    width: 4px;
+
+    height: 4px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #444;
+}
+
+
+.calendar-day.active.journal::after {
+
+    background: white;
+}
+
+
+.calendar-day.selected {
+
+    outline: 1px solid #777;
+
+    outline-offset: 4px;
+
+    font-weight: 600;
+}
+
+
+.calendar-day.active.selected {
+
+    outline-color: #171717;
+}
+
+
+.calendar-day.today {
+
+    font-weight: 700;
+
+    color: #171717;
+}
+
+
+.calendar-day.empty {
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   ACTIVITY FORM
+   ============================================================ */
+
+.activity-panel {
+
+    display: none;
+
+    position: fixed;
+
+    top: 50%;
+
+    left: 50%;
+
+    z-index: 100;
+
+    width: 360px;
+
+    padding: 28px;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    border: 1px solid #222;
+
+    background: #fdfdfc;
+
+    box-shadow:
+        7px 7px 0 #171717;
+}
+
+
+.activity-form h2 {
+
+    margin: 0 0 20px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+.activity-form input {
+
+    width: 100%;
+
+    margin-bottom: 15px;
+
+    padding: 10px 0;
+
+    border: 0;
+
+    border-bottom: 1px solid #ccc;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 15px;
+}
+
+
+.activity-form button {
+
+    padding: 10px 18px;
+
+    border: 1px solid #222;
+
+    background: #171717;
+
+    color: #fff;
+
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   AUTH SCREEN
+   ============================================================ */
+
+.auth-screen {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    z-index: 200;
+
+    width: 100%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fdfdfc;
+}
+
+
+.auth-card {
+
+    width: min(
+        380px,
+        calc(100% - 40px)
+    );
+
+    padding: 40px 36px;
+
+    border: 1px solid #222;
+
+    background: #fdfdfc;
+
+    box-shadow:
+        8px 8px 0 #171717;
+}
+
+
+.auth-card-header {
+
+    margin-bottom: 28px;
+}
+
+
+.auth-card-header h1 {
+
+    margin: 8px 0 0;
+
+    font-size: 44px;
+
+    line-height: 1;
+}
+
+
+.auth-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+
+.auth-field {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.auth-field span {
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    color: #777;
+}
+
+
+.auth-field input {
+
+    padding: 9px 0;
+
+    border: 0;
+
+    border-bottom: 1px solid #ccc;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 15px;
+}
+
+
+.auth-field input:focus {
+
+    border-bottom-color: #171717;
+}
+
+
+.auth-actions {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 6px;
+}
+
+
+.auth-btn {
+
+    padding: 12px 18px;
+
+    border: 1px solid #171717;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        opacity 0.15s ease;
+}
+
+
+.auth-btn--primary {
+
+    background: #171717;
+
+    color: #fff;
+}
+
+
+.auth-btn--primary:hover {
+
+    background: #000;
+}
+
+
+.auth-btn--ghost {
+
+    background: transparent;
+
+    color: #171717;
+}
+
+
+.auth-btn--ghost:hover {
+
+    background: #f0f0f0;
+}
+
+
+.auth-btn:disabled {
+
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+
+.auth-message {
+
+    margin: 22px 0 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+
+.auth-message--error {
+
+    color: #a33;
+}
+
+
+.auth-message--success {
+
+    color: #2a6b3b;
+}
+
+
+/* ============================================================
+   TOP BAR: USER EMAIL + SIGN OUT
+   ============================================================ */
+
+.top-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.user-email {
+
+    color: #555;
+}
+
+
+.signout-btn {
+
+    padding: 8px 14px;
+
+    border: 1px solid #171717;
+
+    background: transparent;
+
+    color: #171717;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.signout-btn:hover {
+
+    background: #171717;
+
+    color: #fff;
+}
+
+
+@media (max-width: 600px) {
+
+    .user-email {
+
+        display: none;
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .page {
+
+        width:
+            calc(100% - 40px);
+    }
+
+
+    .month-header {
+
+        grid-template-columns:
+            1fr
+            repeat(4, minmax(100px, 120px));
+    }
+
+
+    .month-title h1 {
+
+        font-size: 52px;
+    }
+
+
+    .main-content {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .calendar-panel {
+
+        min-height: 650px;
+
+        padding-left: 0;
+
+        border-left: 0;
+
+        border-top: 1px solid #ccc;
+
+        padding-top: 35px;
+    }
+
+
+    .daily-panel {
+
+        padding-right: 0;
+
+        padding-bottom: 40px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .page {
+
+        width:
+            calc(100% - 25px);
+
+        padding-top: 20px;
+    }
+
+
+    .top-bar {
+
+        font-size: 8px;
+    }
+
+
+    .month-header {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 20px;
+
+        padding: 25px 0;
+    }
+
+
+    .month-title {
+
+        grid-column: 1 / -1;
+    }
+
+
+    .month-title h1 {
+
+        font-size: 42px;
+    }
+
+
+    .month-stat {
+
+        padding-left: 12px;
+    }
+
+
+    .month-stat strong {
+
+        font-size: 28px;
+    }
+
+
+    .calendar-day {
+
+        max-width: 38px;
+
+        font-size: 10px;
+    }
+
+
+    .calendar-days {
+
+        gap: 8px;
+    }
+
+
+    .activity-panel {
+
+        width:
+            calc(100% - 40px);
+    }
+}
+
+.activity-menu button:hover {
+    background: #eeeeec;
+}
+
+.activity-menu button:last-child {
+    border-bottom: 0;
+}
+
+/* ============================================================
+   ACTIVITIES
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   HEADER
+   ------------------------------------------------------------ */
+
+.activities-section {
+    position: relative;
+}
+
+
+.activities-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+
+/* ------------------------------------------------------------
+   PLUS BUTTON
+   ------------------------------------------------------------ */
+
+.add-activity-button {
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1.5px solid #171717;
+    border-radius: 50%;
+
+    background: transparent;
+
+    font-size: 22px;
+    line-height: 1;
+
+    color: #171717;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.add-activity-button:hover {
+    background: #171717;
+    color: #fff;
+    border-color: #171717;
+}
+
+
+/* ------------------------------------------------------------
+   ACTIVITY PICKER
+   ------------------------------------------------------------ */
+
+.activity-picker {
+    display: none;
+
+    gap: 24px;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+.activity-choice {
+    padding: 0 0 4px;
+
+    border: 0;
+    border-bottom: 1px solid transparent;
+
+    background: transparent;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    font-size: 15px;
+
+    color: #666;
+
+    cursor: pointer;
+
+    transition:
+        color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.activity-choice:hover {
+    color: #171717;
+    border-bottom-color: #171717;
+}
+
+
+/* ------------------------------------------------------------
+   INLINE FORM
+   ------------------------------------------------------------ */
+
+.inline-activity-form {
+    display: flex;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+.inline-activity-form input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 8px 0;
+
+    border: 0;
+    border-bottom: 1px solid #ddd;
+
+    background: transparent;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+.inline-activity-form input:focus {
+    border-bottom-color: #555;
+}
+
+
+.inline-activity-form button {
+    padding: 8px 16px;
+
+    border: 1px solid #171717;
+
+    background: #171717;
+    color: white;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: opacity 0.15s ease;
+}
+
+
+.inline-activity-form button:hover {
+    opacity: 0.85;
+}
+
+
+/* ------------------------------------------------------------
+   ACTIVITY LIST
+   ------------------------------------------------------------ */
+
+.activity-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.activity-item {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 42px;
+
+    padding: 6px 0;
+
+    border-bottom: 1px solid #ddd;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    font-size: 15px;
+}
+
+
+.activity-item.has-details {
+    cursor: pointer;
+}
+
+
+.activity-item.has-details .activity-name:hover {
+    color: #000;
+}
+
+
+.activity-item.has-details::before {
+    content: "›";
+
+    margin-right: 2px;
+
+    font-size: 14px;
+
+    color: #999;
+
+    transition: transform 0.15s ease;
+}
+
+
+.activity-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+}
+
+
+.activity-name {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+.activity-type {
+    flex-shrink: 0;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: #999;
+}
+
+
+.activity-meta {
+    flex-shrink: 0;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: #777;
+}
+
+
+/* ------------------------------------------------------------
+   DELETE ACTIVITY BUTTON
+   ------------------------------------------------------------ */
+
+.delete-activity-button {
+    width: 26px;
+    height: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 12px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #bbb;
+
+    font-family: inherit;
+    font-size: 17px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        color 0.15s ease,
+        background 0.15s ease;
+}
+
+
+.delete-activity-button:hover {
+    color: #171717;
+    background: #f0f0f0;
+}
+
+
+.no-activities {
+    padding: 10px 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    font-size: 14px;
+
+    color: #999;
+}
+
+
+/* ------------------------------------------------------------
+   ACTIVITY DETAILS (EXPANDABLE)
+   ------------------------------------------------------------ */
+
+.activity-item.expanded::before {
+    transform: rotate(90deg);
+}
+
+
+.activity-details {
+    flex-basis: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    margin-top: 8px;
+
+    padding: 8px 0 2px;
+
+    border-top: 1px solid #ececec;
+}
+
+
+.detail-exercise {
+    display: flex;
+
+    align-items: baseline;
+
+    flex-wrap: wrap;
+
+    gap: 4px 10px;
+}
+
+
+.detail-exercise-name {
+    font-size: 13px;
+
+    color: #333;
+}
+
+
+.detail-sets {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+}
+
+
+.detail-set {
+    font-size: 12px;
+
+    color: #888;
+
+    letter-spacing: 0.3px;
+}
+
+
+.detail-set + .detail-set::before {
+    content: "·";
+
+    margin-right: 6px;
+
+    color: #ccc;
+}
+
+
+/* ------------------------------------------------------------
+   GYM FORM
+   ------------------------------------------------------------ */
+
+.gym-step {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.gym-pill-container {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.gym-pill {
+    padding: 7px 14px;
+
+    border: 1px solid #d8d8d8;
+    border-radius: 20px;
+
+    background: transparent;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    font-size: 13px;
+
+    color: #666;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.gym-pill:hover {
+    border-color: #171717;
+    color: #171717;
+    background: #f0f0f0;
+}
+
+
+.gym-pill.active {
+    border-color: #171717;
+    background: #171717;
+    color: white;
+}
+
+
+.gym-entry {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    padding-top: 4px;
+}
+
+
+.gym-entry-heading {
+    display: flex;
+
+    align-items: baseline;
+
+    justify-content: space-between;
+
+    padding-bottom: 6px;
+
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+.gym-entry-title {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    font-size: 18px;
+}
+
+
+.gym-entry-count {
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: #999;
+}
+
+
+.gym-exercises {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 0 24px;
+}
+
+
+.gym-exercise {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    padding: 8px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.gym-exercise:last-child {
+    border-bottom: 0;
+
+    padding-bottom: 0;
+}
+
+
+.gym-exercise-name {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    font-size: 14px;
+}
+
+
+.gym-sets {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+}
+
+
+.gym-set {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 3px 0;
+
+    font-size: 12px;
+
+    color: #666;
+
+    letter-spacing: 0.3px;
+}
+
+
+.gym-set + .gym-set::before {
+    content: "·";
+
+    margin-right: 2px;
+
+    color: #ccc;
+}
+
+
+.gym-set-remove {
+    border: 0;
+
+    background: transparent;
+
+    color: #bbb;
+
+    font-size: 14px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+.gym-set-remove:hover {
+    color: #171717;
+}
+
+
+.gym-set-input-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 2px;
+}
+
+
+.gym-set-input-row input {
+    width: 64px;
+
+    padding: 5px 8px;
+
+    border: 1px solid #ddd;
+    border-radius: 0;
+
+    background: #fff;
+
+    font-size: 12px;
+
+    color: #171717;
+
+    transition: border-color 0.15s ease;
+}
+
+
+.gym-set-input-row input:focus {
+    border-color: #171717;
+}
+
+
+.gym-add-set-button {
+    width: 30px;
+    height: 26px;
+
+    border: 1px solid #171717;
+    border-radius: 2px;
+
+    background: transparent;
+
+    color: #171717;
+
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.gym-add-set-button:hover {
+    background: #171717;
+    color: white;
+}
+
+
+.gym-save-button {
+    align-self: flex-end;
+
+    padding: 7px 18px;
+
+    border: 1px solid #171717;
+    border-radius: 2px;
+
+    background: transparent;
+    color: #171717;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.gym-save-button:hover {
+    background: #171717;
+    color: white;
+}
+
+
+/* ============================================================
+   STATS / CHARTS
+   ============================================================ */
+
+.stats-section {
+
+    display: none;
+
+    margin-top: 80px;
+
+    padding-top: 40px;
+
+    border-top: 1px solid #ccc;
+}
+
+
+.stats-section.visible {
+    display: block;
+}
+
+
+.chart-canvas {
+
+    width: 100%;
+
+    height: 340px;
+}
+
+
+.stats-header {
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #222;
+}
+
+
+#stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(300px, 1fr)
+        );
+
+    gap: 30px;
+
+    margin-top: 25px;
+}
+
+
+.stats-card {
+
+    border: 1px solid #ddd;
+
+    padding: 20px;
+}
+
+
+.stats-card h3 {
+
+    margin: 0 0 18px 0;
+
+    font-size: 15px;
+
+    letter-spacing: 0.5px;
+
+    color: #171717;
+}
+
+
+.stats-card-body {
+
+    position: relative;
+}
+
+
+.stats-note {
+
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #888;
+}
+
+
+.progression-controls {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 16px;
+
+    margin-bottom: 16px;
+}
+
+
+.chart-control {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: #777;
+}
+
+
+.chart-control select {
+
+    padding: 6px 8px;
+
+    font-size: 13px;
+
+    font-family: inherit;
+
+    color: #171717;
+
+    background: #fff;
+
+    border: 1px solid #ccc;
+
+    border-radius: 0;
+}
+
+
+.chart-control select:focus {
+
+    outline: none;
+
+    border-color: #171717;
+}
+
+
+/* ============================================================
+   JOURNAL SEARCH
+   ============================================================ */
+
+.calendar-panel-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.journal-search-button {
+
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid #d8d8d8;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.journal-search-button:hover {
+
+    border-color: #171717;
+
+    background: #f0f0f0;
+}
+
+
+.search-icon {
+
+    position: relative;
+
+    width: 11px;
+
+    height: 11px;
+
+    border: 1.5px solid #171717;
+
+    border-radius: 50%;
+}
+
+
+.search-icon::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: -5px;
+
+    bottom: -3px;
+
+    width: 6px;
+
+    height: 1.5px;
+
+    background: #171717;
+
+    transform: rotate(45deg);
+
+    transform-origin: left center;
+}
+
+
+.journal-search-panel {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+    padding-top: 40px;
+}
+
+
+.journal-search-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+}
+
+
+.journal-search-header h2 {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #777;
+}
+
+
+.journal-search-close {
+
+    width: 28px;
+
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 0;
+
+    background: transparent;
+
+    font-size: 20px;
+
+    color: #999;
+
+    cursor: pointer;
+
+    transition: color 0.15s ease;
+}
+
+
+.journal-search-close:hover {
+
+    color: #171717;
+}
+
+
+.journal-search-input-wrapper {
+
+    margin-bottom: 8px;
+}
+
+
+.journal-search-input {
+
+    width: 100%;
+
+    padding: 10px 0;
+
+    border: 0;
+
+    border-bottom: 1px solid #ddd;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 15px;
+}
+
+
+.journal-search-input:focus {
+
+    border-bottom-color: #555;
+}
+
+
+.journal-search-results {
+
+    display: flex;
+
+    flex-direction: column;
+
+    max-height: 540px;
+
+    overflow-y: auto;
+}
+
+
+.journal-search-empty {
+
+    padding: 24px 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 14px;
+
+    color: #999;
+}
+
+
+.journal-search-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #eee;
+
+    cursor: pointer;
+
+    transition: background 0.1s ease;
+}
+
+
+.journal-search-item:hover {
+
+    background: #f8f8f8;
+}
+
+
+.journal-search-date {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    color: #777;
+}
+
+
+.journal-search-snippet {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: #444;
+}
+
+
+/* ------------------------------------------------------------
+   RESPONSIVE
+   ------------------------------------------------------------ */
+
+@media (max-width: 700px) {
+
+    .activity-picker {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+
+    .inline-activity-form {
+        flex-direction: column;
+    }
+
+
+    .inline-activity-form button {
+        width: 100%;
+    }
+
+
+    .gym-set-input-row {
+        flex-wrap: wrap;
+    }
+
+
+    .gym-exercises {
+        grid-template-columns: 1fr;
+    }
+
+
+    .gym-add-set-button {
+        width: 100%;
+    }
+}

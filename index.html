@@ -12,7 +12,97 @@
 
 <body>
 
+<<<<<<< Updated upstream
 <main class="page">
+=======
+    <!-- ==================================================
+         AUTH SCREEN
+         ================================================== -->
+
+    <div
+        id="auth-screen"
+        class="auth-screen"
+        style="display: none;"
+    >
+
+        <div class="auth-card">
+
+            <div class="auth-card-header">
+                <span class="eyebrow">
+                    SIGN IN
+                </span>
+
+                <h1>
+                    Personal Log
+                </h1>
+            </div>
+
+            <form
+                id="auth-form"
+                class="auth-form"
+                autocomplete="off"
+            >
+
+                <label
+                    class="auth-field"
+                    for="auth-email"
+                >
+                    <span>EMAIL</span>
+
+                    <input
+                        id="auth-email"
+                        type="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                    >
+                </label>
+
+                <label
+                    class="auth-field"
+                    for="auth-password"
+                >
+                    <span>PASSWORD</span>
+
+                    <input
+                        id="auth-password"
+                        type="password"
+                        placeholder="••••••••"
+                        autocomplete="current-password"
+                    >
+                </label>
+
+                <div class="auth-actions">
+                    <button
+                        id="auth-signin-btn"
+                        type="submit"
+                        class="auth-btn auth-btn--primary"
+                    >
+                        Sign in
+                    </button>
+
+                    <button
+                        id="auth-signup-btn"
+                        type="button"
+                        class="auth-btn auth-btn--ghost"
+                    >
+                        Create account
+                    </button>
+                </div>
+
+            </form>
+
+            <p
+                id="auth-message"
+                class="auth-message"
+            ></p>
+
+        </div>
+
+    </div>
+
+
+    <main class="page" style="display: none;">
+>>>>>>> Stashed changes
 
     <!-- =========================================
          HEADER
@@ -51,8 +141,54 @@
                 <span>DAY</span>
             </div>
 
+<<<<<<< Updated upstream
             <div class="stat">
                 <strong id="entryCount">41</strong>
+=======
+            <div class="top-right">
+                <span
+                    id="user-email"
+                    class="user-email"
+                ></span>
+
+                <button
+                    id="signout-btn"
+                    class="signout-btn"
+                    title="Sign out"
+                >
+                    SIGN OUT
+                </button>
+
+                DAILY TRACKER
+            </div>
+
+        </header>
+
+
+        <!-- ==================================================
+             MONTH HEADER
+             ================================================== -->
+
+        <section class="month-header">
+
+            <div class="month-title">
+
+                <span class="eyebrow">
+                    MONTH
+                </span>
+
+                <h1>Personal Log</h1>
+
+            </div>
+
+            <div class="month-stat">
+                <strong>01</strong>
+                <span>MONTH</span>
+            </div>
+
+            <div class="month-stat">
+                <strong>—</strong>
+>>>>>>> Stashed changes
                 <span>ENTRIES</span>
             </div>
 
@@ -315,6 +451,7 @@
         <!-- JavaScript inserts chart + breakdown -->
     </section>
 
+<<<<<<< Updated upstream
 
     <!-- =========================================
          WORKOUT EDITOR (gym only)
@@ -375,6 +512,12 @@
 
 
 <script type="module" src="app.js"></script>
+=======
+    <script
+        type="module"
+        src="./js/auth.js"
+    ></script>
+>>>>>>> Stashed changes
 
 </body>
 </html>
